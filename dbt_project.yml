@@ -1,0 +1,77 @@
+# Name your project! Project names should contain only lowercase characters
+# and underscores. A good package name should reflect your organization's
+# name or the intended use of these models
+name: 'load_project'  # Project name (good naming convention applied)
+version: '1.0.0'  # Project version
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'load_project'  # Profile to use for this project
+
+# These configurations specify where dbt should look for different types of files.
+# The `model-paths` config, for example, states that models in this project can be
+# found in the "models/" directory. You probably won't need to change these!
+model-paths: ["models"]  # The directory where models are stored
+analysis-paths: ["analyses"]  # Where analysis files are stored (optional)
+test-paths: ["tests"]  # Where test files are stored (optional)
+seed-paths: ["seeds"]  # Where seed files are stored (optional)
+macro-paths: ["macros"]  # Where macros are stored (optional)
+snapshot-paths: ["snapshots"]  # Where snapshot files are stored (optional)
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"  # Output directory where dbt stores build artifacts
+  - "dbt_packages"  # Directory for dbt's package dependencies
+
+# Configuring models
+# Full documentation: https://docs.getdbt.com/docs/configuring-models
+
+models:
+  load_project:
+    # Specify materialization for each layer (staging, fact, etc.)
+    staging:
+      +materialized: table  # Materialize the staging models as tables
+
+      # Here are the staging models with synthetic data
+      stg_loan_applications:
+        +materialized: table
+      stg_loan_disbursements:
+        +materialized: table
+      stg_loan_repayments:
+        +materialized: table
+      stg_loan_defaults:
+        +materialized: table
+      stg_loan_collections:
+        +materialized: table
+      stg_customer:
+        +materialized: table
+      stg_collection_executive:
+        +materialized: table
+      stg_geography_rpt:
+        +materialized: table
+      stg_loan_products:
+        +materialized: table
+      stg_time:
+        +materialized: table
+
+    # Example of fact and dimension models (optional placeholders for future models)
+    fact:
+      # These fact tables will be materialized as tables
+      loan_transactions_rpt_fact:
+        +materialized: table
+
+      average_loan_balance_rpt_fact:
+        +materialized: table
+      
+      default_percentage_rpt_fact:
+        +materialized: table
+
+      first_payment_default_rpt_fact:
+        +materialized: table
+      
+      loan_default_rate_rpt_fact:
+        +materialized: table
+
+    dimension:
+      # These dimensions will be materialized as tables
+      loan_product_dim:
+        +materialized: table
+

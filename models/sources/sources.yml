@@ -1,0 +1,43 @@
+sources:
+  - name: project
+    schema: public
+    tables:
+      # Source for stg_customer
+      - name: STG_CUSTOMERS
+        description: "Table that contains customer data"
+
+      # Source for stg_loan_applications
+      - name: STG_LOAN_APPLICATIONS
+        description: "Table that contains loan application data"
+
+      # Source for stg_loan_disbursements
+      - name: STG_LOAN_DISBURSEMENTS
+        description: "Table that contains loan disbursement data"
+
+      # Source for stg_loan_repayments
+      - name: STG_LOAN_REPAYMENTS
+        description: "Table that contains loan repayment data"
+
+      # Source for stg_loan_defaults
+      - name: STG_LOAN_DEFAULTS
+        description: "Table that contains loan default data"
+
+      # Source for stg_loan_collections
+      - name: STG_LOAN_COLLECTIONS
+        description: "Table that contains loan collection data"
+
+      # Source for stg_collection_executive
+      - name: STG_COLLECTION_EXECUTIVES
+        description: "Table that contains collection executive data"
+
+      # Source for stg_geography_rpt
+      - name: STG_GEOGRAPHY
+        description: "Table that contains geography report data"
+
+      # Source for stg_loan_products
+      - name: STG_LOAN_PRODUCTS
+        description: "Table that contains loan product data"
+
+      # Source for stg_time
+      - name: STG_TIME
+        description: "Table that contains time-related data"
